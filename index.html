@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Sistema solar - EFAZ</title>
+      <link rel="icon" type="image/x-icon" href="imagens2/sol-ico.png">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+         * {box-sizing: border-box}
+         /* Set height of body and the document to 100% */
+         body, html {
+         height: 100%;
+         margin: 0;
+         font-family: Arial;
+         }
+         /* Style tab links */
+         .tablink {
+         background-color: #555;
+         color: white;
+         float: left;
+         border: none;
+         outline: none;
+         cursor: pointer;
+         padding: 14px 16px;
+         font-size: 17px;
+         width: 50%;
+         }
+         .tablink:hover {
+         background-color: #777;
+         }
+         /* Style the tab content (and add height:100% for full page content) */
+         .tabcontent {
+         color: white;
+         display: none;
+         padding: 100px 20px;
+         height: 100%;
+         }
+         .bodySolar {
+         background-image: url('imagens2/fundo-solar.jpg');
+         }
+         .bodyAnao {
+         background-image: url('imagens2/fundo-anoes.jpg');
+         }
+		.texto {
+		font-size: 20px;
+		}		 
+      </style>
+   </head>
+   <body id="corpo" class="texto"  >
+      <button class="tablink" onclick="openPage('tabsolar', this, '#161522')" id="defaultOpen" >Sistema solar</button>
+      <button class="tablink" onclick="openPage('tabAnao', this, 'black')"  >Planetas anões</button>
+      <div id="tabsolar" class="tabcontent">
+         <!-- class="body" -->
+         <div id="divSolar" class="bodySolar">
+            <h3>Sistema solar</h3>
+            <p>Onde moramos...</p>
+            <center>
+               <table>
+                  <tr style="background-color:#161522;">
+                     <th><input type="checkbox" id="checkbox_rochosos" name="rochosos" onChange="check_rochosos();" checked><label for="rochosos"> Planetas Rochosos</label></th>
+                     <th><input type="checkbox" id="checkbox_gasosos" name="gasosos" onChange="check_gasosos();" checked><label for="gasosos"> Planetas Gasosos</label><br></th>
+                  </tr>
+               </table>
+			   <a id="linksol" href="sol.html">
+               <img align="center" id="sol" src="imagens2/sol.png"></a>SOL<br>
+               <div id="rochosos">
+			      <!-- MERCURIO -->
+                  <a id="linkmercurio" href="mercurio.html">
+				    <img id="imgmercurio" align="center" src="imagens2/mercurio.png">
+				  </a><span id="textomercurio">MERCURIO</span><br>  
+				  <!-- VENUS -->
+                  <a id="linkvenus" href="venus.html">
+				     <img id="imgvenus" align="center" src="imagens2/venus.png">
+				  </a><span id="textovenus" >VENUS</span><br>
+                  <!-- TERRA -->	
+                  <a id="linkterra" href="terra.html">				  
+                     <img id="imgterra" align="center" src="imagens2/terra.png">
+				  </a><span id="textoterra" >TERRA</span><br>
+                  <!-- MARTE -->	
+                  <a id="linkmarte" href="marte.html">				  
+                     <img id="imgmarte" align="center" src="imagens2/marte.png">
+				  </a><span id="textomarte">MARTE</span><br>
+               </div>
+               <div id="gasosos">
+			      <!-- JUPITER -->
+                  <a id="linkjupiter" href="jupiter.html">
+				    <img id="imgjupiter" align="center" src="imagens2/jupiter.png">
+				  </a><span id="textojupiter">JUPITER</span><br>  
+				  <!-- SATURNO -->
+                  <a id="linksaturno" href="saturno.html">
+				     <img id="imgsaturno" align="center" src="imagens2/saturno.png">
+				  </a><span id="textosaturno">SATURNO</span><br>
+                  <!-- URANO -->	
+                  <a id="linkurano" href="urano.html">				  
+                     <img id="imgurano" align="center" src="imagens2/urano.png">
+				  </a><span id="textourano">URANO</span><br>	
+                  <!-- NETUNO -->	
+                  <a id="linknetuno" href="netunogg.html">				  
+                     <img id="imgnetuno" align="center" src="imagens2/netuno.png">
+				  </a><span id="textonetuno">NETUNO</span><br>
+               </div>
+            </center>
+         </div>
+      </div>
+      <div id="tabAnao" class="tabcontent">
+         <div id="divAnao" class="bodyAnao">
+            <center>
+               <a id="linkmercurio0" href="ceres.html"><img align="center" src="imagens2/ceres.png"></a><span id="textomercurio">CERES</span><br>  
+               <a id="linkmercurio1" href="plutao.html"><img align="center" src="imagens2/pluto.png"></a><span id="textomercurio1">PLUTÃO</span><br>  
+               <a id="linkmercurio2" href="haumea.html"><img align="center" src="imagens2/HAUMEA.png"></a><span id="textomercurio2">HAUMEA</span><br>  
+               <a id="linkmercurio3" href="makemake.html"><img align="center" src="imagens2/makemake.png"></a><span id="textomercurio3">MAKEMAKE</span><br>  
+               <a id="linkmercurio4" href="eris.html"><img align="center" src="imagens2/eris.png"></a><span id="textomercurio4">ÉRIS</span><br>  
+            </center>
+         </div>
+      </div>
+      <script>
+         function openPage(pageName,elmnt,color) {
+           var i, tabcontent, tablinks;
+           tabcontent = document.getElementsByClassName("tabcontent");
+           for (i = 0; i < tabcontent.length; i++) {
+             tabcontent[i].style.display = "none";
+           }
+           tablinks = document.getElementsByClassName("tablink");
+           for (i = 0; i < tablinks.length; i++) {
+             tablinks[i].style.backgroundColor = "";
+           }
+           document.getElementById(pageName).style.display = "block";
+           elmnt.style.backgroundColor = color;
+         
+           var corpo = document.getElementById("corpo");  
+           corpo.style.backgroundColor=color;
+         }
+         
+         function check_rochosos(){
+          if (document.getElementById("checkbox_rochosos").checked){
+			//-- Mercurio
+			var el = document.getElementById("textomercurio"); el.style.visibility="visible";
+            var el = document.getElementById("imgmercurio"); el.src="imagens2/mercurio.png";
+			//-- Venus
+			var el = document.getElementById("textovenus"); el.style.visibility="visible";
+            var el = document.getElementById("imgvenus"); el.src="imagens2/venus.png";
+			//-- Terra
+			var el = document.getElementById("textoterra"); el.style.visibility="visible";
+            var el = document.getElementById("imgterra"); el.src="imagens2/terra.png";
+			//-- Marte
+			var el = document.getElementById("textomarte"); el.style.visibility="visible";
+            var el = document.getElementById("imgmarte"); el.src="imagens2/marte.png";
+          } else {
+			//-- Mercurio
+			var el = document.getElementById("textomercurio"); el.style.visibility="hidden";
+            var el = document.getElementById("imgmercurio"); el.src="imagens2/mercurio.png";
+			//-- Venus
+			var el = document.getElementById("textovenus"); el.style.visibility="hidden";
+            var el = document.getElementById("imgvenus"); el.src="imagens2/venus_pb.png";
+			//-- Terra
+			var el = document.getElementById("textoterra"); el.style.visibility="hidden";
+            var el = document.getElementById("imgterra"); el.src="imagens2/terra_pb.png";
+			//-- Marte
+			var el = document.getElementById("textomarte"); el.style.visibility="hidden";
+            var el = document.getElementById("imgmarte"); el.src="imagens2/marte_pb.png";
+          }
+         } 
+         function check_gasosos(){
+          if (document.getElementById("checkbox_gasosos").checked){
+			//-- Jupiter
+			var el = document.getElementById("textojupiter"); el.style.visibility="visible";
+            var el = document.getElementById("imgjupiter"); el.src="imagens2/jupiter.png";
+			//-- Saturno
+			var el = document.getElementById("textosaturno"); el.style.visibility="visible";
+            var el = document.getElementById("imgsaturno"); el.src="imagens2/saturno.png";
+			//-- Urano
+			var el = document.getElementById("textourano"); el.style.visibility="visible";
+            var el = document.getElementById("imgurano"); el.src="imagens2/urano.png";
+			//-- Netuno
+			var el = document.getElementById("textonetuno"); el.style.visibility="visible";
+            var el = document.getElementById("imgnetuno"); el.src="imagens2/netuno.png";
+          } else {
+			//-- Jupiter
+			var el = document.getElementById("textojupiter"); el.style.visibility="hidden";
+            var el = document.getElementById("imgjupiter"); el.src="imagens2/jupiter_pb.png";
+			//-- Saturno
+			var el = document.getElementById("textosaturno"); el.style.visibility="hidden";
+            var el = document.getElementById("imgsaturno"); el.src="imagens2/saturno_pb.png";
+			//-- Urano
+			var el = document.getElementById("textourano"); el.style.visibility="hidden";
+            var el = document.getElementById("imgurano"); el.src="imagens2/urano_pb.png";
+			//-- Netuno
+			var el = document.getElementById("textonetuno"); el.style.visibility="hidden";
+            var el = document.getElementById("imgnetuno"); el.src="imagens2/netuno_pb.png";          
+		  }
+         }
+         // Get the element with id="defaultOpen" and click on it
+         document.getElementById("defaultOpen").click();
+      </script>
+   </body>
+</html>
